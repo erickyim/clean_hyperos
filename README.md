@@ -43,6 +43,9 @@ com.miui.miwallpaper 小米壁纸（屏幕直接黑屏，任何东西都看不�
 https://developer.android.google.cn/tools/releases/platform-tools?hl=zh-cn 
 ），也可使用手机端ADB软件如“黑阈”；
 
+- 初级开发者模式：在开发者模式的“USB调试、无线调试”这2个按钮；
+- 高级级开发者模式：在开发者模式的“USB调试、USB调试（安全模式）、无线调试”这3个按钮，其中打开“USB调试（安全模式）”时要求登录小米账号com.xiaomi.account + 有安全服务com.miui.securitycenter软件，此开关打开后，可删除一些系统保护的软件如小米finddevice；
+
 6️⃣ 澎湃2比澎湃1好用，推荐澎湃2；澎湃3比澎湃2好用，推荐澎湃3。使用本教程从2升级到3重启时可能会卡米，建议先手动备份2文件系统到电脑里面，再升级到3；
 
 7️⃣ 虚拟内存可以关闭或只设置为扩展4G，因为使用感知不强；
