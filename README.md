@@ -331,6 +331,12 @@ adb shell pm uninstall --user 0 com.miui.wmsvc #似乎与快应用的信息服�
 
 #adb shell pm uninstall --user 0 com.miui.tsmclient #小米智能卡
 
+#############adb shell pm uninstall --user 0 com.xiaomi.camera 相机
+
+#############adb shell pm uninstall --user 0 com.xiaomi.cameramind 相机图片后台合成任务
+
+#############adb shell pm uninstall --user 0 com.xiaomi.finddevice 小米查找设备（需要3项开发者权限开启）
+
 ```
 
 ### 可删App，增值服务：
