@@ -142,6 +142,8 @@ adb shell pm uninstall --user 10 com.android.camera;
 
 adb shell pm uninstall --user 10 com.miui.backup;
 
+adb shell pm uninstall --user 10 com.xiaomi.cameramind
+
 
 #==========================适合国际==================
 
