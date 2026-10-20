@@ -1,7 +1,7 @@
 
 # <a id="no-0"></a>《小米手机系统优化对照表及注解》
 
-更新时间：2026-10-17（重置版），适配HyperOS1、HyperOS2、HyperOS3 ，可能仅限国行版。
+更新时间：2026-10-20（细节补充版），适配HyperOS1、HyperOS2、HyperOS3 ，可能仅限国行版。
 
 原创教程地址： https://github.com/fyonecon/clean_hyperos 。
 
@@ -18,7 +18,7 @@
 - [一、安全说明](#no-1)
 - [二、深度设置手机](#no-2)
 - [三、用ADB删除系统应用](#no-3)
-- [四、小米系统扩展用法](#no-3)
+- [四、小米系统扩展用法](#no-4)
 - [五、恢复已删除App](#no-5)
 - [End 吐槽](#no-end)
 
@@ -328,6 +328,8 @@ adb shell pm uninstall --user 0 com.miui.contentcatcher #应用扩展服务（�
 
 adb shell pm uninstall --user 0 com.unionpay.tsmservice.mi #银联统计
 
+#############adb shell pm uninstall --user 0 com.tencent.soter.soterserver #微信指纹支付（删了不影响微信支付）
+
 adb shell pm uninstall --user 0 com.wapi.wapicertmanager #WAPI证书
 
 adb shell pm uninstall --user 0 com.miui.thirdappassistant #第三方应用分析（主要针对32位应用）
@@ -335,8 +337,6 @@ adb shell pm uninstall --user 0 com.miui.thirdappassistant #第三方应用分�
 adb shell pm uninstall --user 0 com.android.adservices.api #谷歌安卓系统广告隐私保护
 
 adb shell pm uninstall --user 0 com.miui.mishare.connectivity #小米分享（废物应用）
-
-#adb shell pm uninstall --user 0 com.miui.nextpay #卡包网页组件（小米钱包、NFC管理等）
 
 adb shell pm uninstall --user 0 com.android.healthconnect.controller #健康数据共享
 
@@ -358,15 +358,15 @@ adb shell pm uninstall --user 0 com.xiaomi.bluetooth #小米额外的蓝牙服�
 
 #adb shell pm uninstall --user 0 com.xiaomi.continuity.sdkapp #继续服务（协同播放、投屏？）
 
-adb shell pm uninstall --user 0 com.miui.wmsvc #似乎与快应用的信息服务有关
-
 #adb shell pm uninstall --user 0 com.miui.autoui.ext #？
 
 #adb shell pm uninstall --user 0 com.mi.AutoTest #售后测试
 
-#############adb shell pm uninstall --user 0 com.tencent.soter.soterserver #微信指纹支付
-
 #adb shell pm uninstall --user 0 com.miui.tsmclient #小米智能卡
+
+#adb shell pm uninstall --user 0 com.miui.wmsvc #似乎与快应用的信息服务有关（有人说与NFC充值也有关）
+
+#adb shell pm uninstall --user 0 com.miui.nextpay #卡包网页组件（小米钱包、NFC管理等）
 
 #############adb shell pm uninstall --user 0 com.xiaomi.camera 相机
 
@@ -382,7 +382,7 @@ adb shell pm uninstall --user 0 com.miui.wmsvc #似乎与快应用的信息服�
 
 #############adb shell pm uninstall --user 0 com.lbe.security.miui #MIUI权限管理（可用安卓自带权限管理代替。默认国内权限全开，原生安卓权限需要手动设置。）
 
-#############adb shell pm uninstall --user 0 com.miui.securitycenter #安全服务（无界面，电池管理、应用列表、隐藏应用、应用联网、手机改名、OAID<删除securitycenter后App获取OAID将为空>、应用锁、应用杀毒、地震预警，请用“LibCheck https://www.downkuai.com/android/147630.html ”软件代替管理应用列表。如果“关闭小米手机系统优化”，强烈建议删除此App，以获得接近原声安卓的体验。此app与系统及的“全屏红色倒计时弹窗”提醒有关，卸载后提醒变成无全屏弹窗倒计时的小蓝色弹窗。此外，app与取证有关（未证实）。分身空间（不是多用户空间）删除后重启手机会自动恢复。）
+#############adb shell pm uninstall --user 0 com.miui.securitycenter #安全服务（无界面，电池管理、应用列表、隐藏应用、应用联网、手机改名、OAID<删除securitycenter后App获取OAID将为空>、应用锁、应用杀毒、地震预警、NFC充值，请用“LibCheck https://www.downkuai.com/android/147630.html ”软件代替管理应用列表。如果“关闭小米手机系统优化”，强烈建议删除此App，以获得接近原声安卓的体验。此app与系统及的“全屏红色倒计时弹窗”提醒有关，卸载后提醒变成无全屏弹窗倒计时的小蓝色弹窗。此外，app与取证有关（未证实）。分身空间（不是多用户空间）删除后重启手机会自动恢复。）
 
 #############adb shell pm uninstall --user 0 com.xiaomi.xmsf #⚠️小米服务框架（微信消息、APP后台消息推送（可与Google FCM共存）、MiPush、设备统计相关、用户大数据分析等）
 
@@ -479,9 +479,39 @@ Google电话、Google短信、Google Photo、微信（Play版微信需要下载�
       - AdGuard for SamsungBrowser： https://github.com/fyonecon/clean_hyperos/releases/download/HyperOS3-20260428/AdGuard_samsung.browser_2.8.0.apk.7z （需要把“.7z”后缀直接删掉即可是对应.apk文件。）
       - ABP for SamsungBrowser：https://github.com/fyonecon/clean_hyperos/releases/download/HyperOS3-20260428/ABP_samsung.browser_2.5.7.apk.7z （需要把“.7z”后缀直接删掉即可是对应.apk文件。）
 
-### 3. 推荐几个安卓应用商店：
+### 3.1 推荐几个安卓应用商店：
 - 应用汇（国内）：https://www.appchina.com
 - 应用宝（国内）：https://sj.qq.com
+
+### 3.2 应用列表及权限管理，（同 电池管理、联网管理等）：
+如果需要从“手机设置App”进入权限和应用列表来管理应用，需要下面系统App组件（从长按App图标进或者使用第三方管理程序这不需要）：
+```
+com.miui.securitycenter #安全中心
+
+com.lbe.security.miui #MIUI权限管理（关闭系统优化时可选）
+```
+
+### 3.3 手机NFC：
+小米的NFC开卡居然是收费20RMB，iPhone就不需要。
+
+需要下面系统App组件：
+```
+com.miui.securitycenter #安全中心
+
+com.miui.tsmclient #小米智能卡
+
+com.miui.wmsvc #似乎与快应用的信息服务有关（有人说与NFC充值也有关）
+
+com.miui.nextpay #卡包网页组件
+```
+
+### 3.4 小米消息推送：
+需要有下面两个系统app组件：
+```
+com.xiaomi.xmsf
+
+com.xiaomi.xmsfkeeper
+```
 
 ### 4. 关于“国内 OAID”和“Google ADID”的说明：
 - 这两个ID都可以跨App追踪用户，实现用户“隐私与广告”跨App互通。
@@ -561,6 +591,8 @@ https://github.com/fyonecon/clean_hyperos/releases/download/HyperOS3-20260428/Ap
 
 
 # <a id="no-5"></a>五、恢复已删除App：
+
+⚠️恢复软件后需要手动重启手机一次。
 
 ### 1. 恢复已删除的预装应用举例：
 
